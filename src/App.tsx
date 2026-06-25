@@ -15,32 +15,38 @@ const products = [
   {
     name: 'Dedicated by default',
     eyebrow: 'Physical reservation',
-    description: 'Run workloads on physical servers reserved for your team, not a shared public-cloud pool.',
+    description: 'Run workloads on physical servers reserved for your team, not a shared cloud pool.',
     icon: Server,
   },
   {
     name: 'Cloud-like control',
     eyebrow: 'Portal and API',
-    description: 'Deploy bare metal, VMs, private networks, and managed services from one control surface.',
+    description: 'Deploy bare metal, VMs, networks, and services from one control surface.',
     icon: Layers3,
   },
   {
     name: 'Use capacity your way',
     eyebrow: 'Flexible allocation',
-    description: 'Keep a server as bare metal, split it into instances, or allocate resources to managed services.',
+    description: 'Keep a host as bare metal, split it into instances, or reserve it for services.',
     icon: Cpu,
   },
   {
     name: 'Predictable cost',
     eyebrow: 'Reserved capacity',
-    description: 'Reserve hardware once, then consume it across workloads without surprise cloud sprawl.',
+    description: 'Reserve hardware once, then consume it across workloads with fewer surprises.',
     icon: Database,
   },
   {
     name: 'Private network fabric',
     eyebrow: 'Tenant isolation',
-    description: 'Connect bare-metal servers, VMs, and services inside isolated private networks.',
+    description: 'Connect servers, VMs, and services inside isolated tenant networks.',
     icon: Network,
+  },
+  {
+    name: 'Workload flexibility',
+    eyebrow: 'Mixed environments',
+    description: 'Place dedicated servers, GPU systems, VMs, and services in the same environment.',
+    icon: ShieldCheck,
   },
 ]
 
@@ -61,8 +67,8 @@ const platformPoints = [
 
 const stats = [
   ['Single tenant', 'Reserved physical capacity'],
-  ['730 hr/mo', 'Monthly planning baseline'],
-  ['Private fabric', 'Networks per environment'],
+  ['One control plane', 'Bare metal, VMs, and services'],
+  ['Private networking', 'Isolated networks per environment'],
 ]
 
 export function App() {
@@ -218,7 +224,7 @@ function MiniStat({ icon, label, value }: { icon: ReactNode; label: string; valu
 
 function ProductGrid() {
   return (
-    <section id="products" className="border-b border-line bg-white py-20">
+    <section id="products" className="scroll-mt-20 border-b border-line bg-white py-20">
       <div className="mx-auto max-w-[1180px] px-5 lg:px-8">
         <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
           <div>
@@ -239,7 +245,6 @@ function ProductGrid() {
                 <div className="rounded-xl border border-line bg-white p-2.5 text-blue-700 shadow-subtle">
                   <Icon size={18} />
                 </div>
-                <span className="font-mono text-[10.5px] uppercase tracking-[0.14em] text-muted">Exos</span>
               </div>
               <p className="mt-5 text-[10px] font-bold uppercase tracking-[0.18em] text-muted">{eyebrow}</p>
               <h3 className="mt-2 text-[18px] font-semibold text-ink">{name}</h3>
@@ -263,7 +268,7 @@ function ProductGrid() {
 
 function Platform() {
   return (
-    <section id="platform" className="relative overflow-hidden border-b border-line bg-frost py-20">
+    <section id="platform" className="relative scroll-mt-20 overflow-hidden border-b border-line bg-frost py-20">
       <div className="relative mx-auto grid max-w-[1180px] gap-10 px-5 lg:grid-cols-[0.88fr_1.12fr] lg:items-center lg:px-8">
         <div>
           <p className="eyebrow">02 / Control model</p>
@@ -296,7 +301,7 @@ function Platform() {
 
 function Locations() {
   return (
-    <section id="locations" className="relative overflow-hidden border-b border-white/10 bg-ink py-20 text-white">
+    <section id="locations" className="relative scroll-mt-20 overflow-hidden border-b border-white/10 bg-ink py-20 text-white">
       <div className="absolute inset-0 bg-[linear-gradient(180deg,#07111f_0%,#0b1728_100%)]" aria-hidden />
       <div className="relative mx-auto grid max-w-[1180px] gap-10 px-5 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:px-8">
         <div>
@@ -324,7 +329,7 @@ function Locations() {
 
 function Waitlist() {
   return (
-    <section id="waitlist" className="bg-white py-20">
+    <section id="waitlist" className="scroll-mt-20 bg-white py-20">
       <div className="mx-auto max-w-[1180px] px-5 lg:px-8">
         <div className="relative overflow-hidden rounded-[24px] border border-line bg-frost p-6 shadow-premium sm:p-8 lg:p-10">
           <div className="relative grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
